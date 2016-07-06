@@ -4,7 +4,13 @@
     <title>ATL Rocket Leage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-    <h2> This is not a user facing app. Please see documentation </h2>
+<body aurelia-app>
+  <h1>Loading...</h1>
+
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import('aurelia-bootstrapper');
+  </script>
 </body>
 </html>

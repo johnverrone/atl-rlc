@@ -1,4 +1,5 @@
 var connectionString = require('../../config/database');
+var pg = require('pg');
 
 exports.createTeam = function(req, res) {
 
@@ -35,7 +36,7 @@ exports.createTeam = function(req, res) {
 
 
   });
-});
+}
 
 exports.getTeams = function(req, res) {
 
@@ -66,7 +67,7 @@ exports.getTeams = function(req, res) {
 
     });
 
-});
+}
 
 exports.updateTeam = function(req, res) {
 
@@ -105,7 +106,7 @@ exports.updateTeam = function(req, res) {
         });
     });
 
-});
+}
 
 exports.deleteTeam = function(req, res) {
 
@@ -142,4 +143,4 @@ exports.deleteTeam = function(req, res) {
         });
     });
 
-});
+}

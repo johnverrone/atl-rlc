@@ -1,0 +1,15 @@
+<template>
+  <nav class="see-thru-nav">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">ATL-RLC</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+          <a href.bind="row.href">${row.title}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <router-view></router-view>
+  </div>
+</template>

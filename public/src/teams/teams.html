@@ -1,6 +1,15 @@
 <template>
-  <ul class="collection with-header">
-    <li class="collection-header"><h4>Teams</h4></li>
-    <li repeat.for="team of teams" class="collection-item">${team.name}</li>
-  </ul>
+  <div clas="mdl-grid">
+    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-offset">
+      <ul class="mdl-list">
+        <li repeat.for="team of teams" class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">${team.name}</span>
+          <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">close</i></a>
+        </li>
+      </ul>
+      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">add</i>
+      </button>
+    </div>
+  </div>
 </template>

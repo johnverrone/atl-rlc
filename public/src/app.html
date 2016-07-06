@@ -1,15 +1,31 @@
 <template>
-  <nav class="see-thru-nav">
-    <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">ATL-RLC</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-          <a href.bind="row.href">${row.title}</a>
-        </li>
-      </ul>
+  <div class="mdl-layout__container">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                      mdl-textfield--floating-label mdl-textfield--align-right">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <span class="mdl-layout-title">ATL-RLC</span>
+        <nav class="mdl-navigation">
+          <a repeat.for="row of router.navigation" class="mdl-navigation__link" href.bind="row.href">${row.title}</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="page-content">
+          <router-view></router-view>
+        </div>
+      </main>
     </div>
-  </nav>
-  <div class="container">
-    <router-view></router-view>
   </div>
 </template>

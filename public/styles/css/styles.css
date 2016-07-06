@@ -1,6 +1,5 @@
 @import 'reset.css';
 
-.see-thru-nav {
-  background-color: rgba(0, 0, 0, .65);
-  border-bottom: thin solid black;
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
 }

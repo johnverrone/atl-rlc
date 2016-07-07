@@ -4,7 +4,8 @@ import {HttpClient} from 'aurelia-fetch-client';
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
+    .developmentLogging()
+    .plugin('redpelicans/aurelia-material');
 
   configureContainer(aurelia.container);
 

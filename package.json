@@ -26,7 +26,8 @@
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-rc.1.0.1",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-rc.1.0.0",
       "aurelia-framework": "npm:aurelia-framework@^1.0.0-rc.1.0.1",
-      "fetch": "github:github/fetch@^1.0.0"
+      "fetch": "github:github/fetch@^1.0.0",
+      "redpelicans/aurelia-material": "github:redpelicans/aurelia-material@master"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",

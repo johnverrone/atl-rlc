@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 @inject(HttpClient)
 export class Teams {
@@ -21,5 +21,31 @@ export class Teams {
       .catch(error => {
         alert('Error fetching teams!');
       });
+  }
+
+  createTeam(name) {
+    var team = {
+      name: name
+    };
+
+    this.http
+      .fetch('teams', {
+        method: 'post',
+        body: json(team)
+      })
+      .then(response => response.json())
+      .then(teams => {
+        this.teams = teams;
+      })
+      .catch(error => {
+        alert('Error creating team!');
+      })
+
+    this.newTeam = '';
+  }
+
+  deleteTeam(id) {
+    this.http
+      .fetch('teams/:')
   }
 }

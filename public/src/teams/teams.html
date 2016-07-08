@@ -1,15 +1,22 @@
 <template>
-  <div clas="mdl-grid">
-    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-offset">
+  <section class="section-center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-cell mdl-cell--12-col mdl-color--white">
+      <h4>Teams</h4>
       <ul class="mdl-list">
         <li repeat.for="team of teams" class="mdl-list__item">
-          <span class="mdl-list__item-primary-content">${team.name}</span>
-          <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">close</i></a>
+          <span class="mdl-list__item-primary-content">${team.id} - ${team.name}</span>
+          <a class="mdl-list__item-secondary-action" click.delegate="deleteTeam($index)"><i class="material-icons">close</i></a>
         </li>
       </ul>
-      <button mdl="button" class="mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-        <i class="material-icons">add</i>
-      </button>
+      <form>
+        <div mdl="textfield" class="mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="newTeam" value.bind="newTeam">
+          <label class="mdl-textfield__label" for="newTeam">New team name</label>
+        </div>
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" click.delegate="createTeam(newTeam)">
+          Add Team
+        </a>
+      </form>
     </div>
-  </div>
+  </section>
 </template>

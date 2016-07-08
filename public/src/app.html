@@ -1,8 +1,8 @@
 <template>
-  <div mdl="layout" class="mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="rl-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+  <div mdl="layout" class="mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Home</span>
+        <span class="mdl-layout-title">ATL Rocket League</span>
         <div class="mdl-layout-spacer"></div>
         <div mdl="textfield" class="mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
           <label mdl="button" class="mdl-button--icon" for="fixed-header-drawer-exp">
@@ -14,19 +14,17 @@
         </div>
       </div>
     </header>
-    <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+    <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">ATL-RLC</span>
-      <nav class="mdl-navigation mdl-color--blue-grey-800">
+      <nav class="mdl-navigation">
         <a repeat.for="row of router.navigation" class="mdl-navigation__link" href.bind="row.href">
           <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>
           ${row.title}
         </a>
       </nav>
     </div>
-    <main class="mdl-layout__content mdl-color--grey-100">
-      <div class="page-content">
-        <router-view></router-view>
-      </div>
+    <main class="rl-main mdl-layout__content mdl-color--grey-100">
+      <router-view></router-view>
     </main>
   </div>
 </template>

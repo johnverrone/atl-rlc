@@ -46,6 +46,16 @@ export class Teams {
 
   deleteTeam(id) {
     this.http
-      .fetch('teams/:')
+      .fetch(`teams/${id}`, {
+        method: 'delete',
+      })
+      .then(response => response.json())
+      .then(teams => {
+        this.teams = teams;
+      })
+      .catch(error => {
+        alert('Error deleting team!');
+      })
+
   }
 }

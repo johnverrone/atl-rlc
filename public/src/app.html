@@ -1,6 +1,6 @@
 <template>
-  <div mdl="layout" class="mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
+  <div mdl="layout" class="mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-color--grey-50 mdl-color-text--grey-800">
       <div class="mdl-layout__header-row">
         <span class="mdl-layout-title">ATL Rocket League</span>
         <div class="mdl-layout-spacer"></div>
@@ -14,7 +14,7 @@
         </div>
       </div>
     </header>
-    <div class="mdl-layout__drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-800 mdl-color-text--grey-300">
       <span class="mdl-layout-title">ATL-RLC</span>
       <nav class="mdl-navigation">
         <a repeat.for="row of router.navigation" class="mdl-navigation__link" href.bind="row.href">

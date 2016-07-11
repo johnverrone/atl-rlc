@@ -6,6 +6,7 @@
         <thead>
           <tr>
             <th class="mdl-data-table__cell--non-numeric">Player</th>
+            <th class="mdl-data-table__cell--non-numeric">Team</th>
             <th>Goals</th>
             <th>Assists</th>
             <th>Saves</th>
@@ -16,6 +17,7 @@
         <tbody>
           <tr repeat.for="player of players">
             <td class="mdl-data-table__cell--non-numeric">${player.username}</td>
+            <td class="mdl-data-table__cell--non-numeric">${player.team}</td>
             <td>${player.goals}</td>
             <td>${player.assists}</td>
             <td>${player.saves}</td>
@@ -34,9 +36,13 @@
           <h4 class="mdl-dialog__title">Create Player</h4>
           <div class="mdl-dialog__content">
             <div mdl="textfield" class="mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="username">
+              <input class="mdl-textfield__input" type="text" id="username" value.bind="username" required>
               <label class="mdl-textfield__label" for="username">Username</label>
             </div>
+            <label mdl="radio" repeat.for="team of teams" class="mdl-js-ripple-effect" for="${team.id}">
+              <input type="radio" id="${team.id}" class="mdl-radio__button" name="teams" value.bind="team.id" checked.bind="$parent.selectedTeam">
+              <span class="mdl-radio__label">${team.name}</span>
+            </label>
           </div>
           <div class="mdl-dialog__actions">
             <button type="submit" class="mdl-button">Create</button>

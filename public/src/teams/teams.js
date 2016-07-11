@@ -1,11 +1,11 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient, json} from 'aurelia-fetch-client';
+import {TeamsService} from './teams.service';
 
-@inject(HttpClient)
+@inject(TeamsService)
 export class Teams {
 
-  constructor(HttpClient) {
-    this.http = HttpClient;
+  constructor(TeamsService) {
+    this.teamsService = TeamsService;
   }
 
   activate() {
@@ -13,8 +13,7 @@ export class Teams {
   }
 
   getTeams() {
-    this.http.fetch('teams')
-      .then(response => response.json())
+    this.teamsService.getTeams()
       .then(data => {
         this.teams = data;
       })
@@ -28,12 +27,7 @@ export class Teams {
       name: name
     };
 
-    this.http
-      .fetch('teams', {
-        method: 'post',
-        body: json(team)
-      })
-      .then(response => response.json())
+    this.teamsService.createTeam(team)
       .then(teams => {
         this.teams = teams;
       })
@@ -45,11 +39,7 @@ export class Teams {
   }
 
   deleteTeam(id) {
-    this.http
-      .fetch(`teams/${id}`, {
-        method: 'delete',
-      })
-      .then(response => response.json())
+    this.teamsService.deleteTeam(id)
       .then(teams => {
         this.teams = teams;
       })

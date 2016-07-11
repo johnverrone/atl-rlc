@@ -1,15 +1,22 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
+import {TeamsService} from '../teams/teams.service';
+import {PlayersService} from './players.service';
 
-@inject(HttpClient)
+@inject(HttpClient, TeamsService, PlayersService)
 export class Players {
 
-  constructor(HttpClient) {
+  constructor(HttpClient, TeamsService, PlayersService) {
     this.http = HttpClient;
+    this.teamsService = TeamsService;
+    this.playersService = PlayersService;
   }
 
   activate() {
-    return this.getPlayers();
+    this.teamsService.getTeams()
+      .then(data => this.teams = data)
+      .catch(error => console.log('Error fetching teams.'));
+    this.getPlayers();
   }
 
   openDialog() {
@@ -22,17 +29,21 @@ export class Players {
   }
 
   createPlayer() {
+    var newPlayer = {
+      username: this.username,
+      team_id: this.selectedTeam
+    }
+
+    this.playersService.createPlayer(newPlayer)
+      .then(data => this.players = data)
+      .catch(error => console.log('Error fetching players!'));
+
     this.closeDialog();
   }
 
   getPlayers() {
-    this.http.fetch('players')
-      .then(response => response.json())
-      .then(data => {
-        this.players = data;
-      })
-      .catch(error => {
-        alert('Error fetching players!');
-      });
+    this.playersService.getPlayers()
+      .then(data => this.players = data)
+      .catch(error => console.log('Error fetching players!'));
   }
 }

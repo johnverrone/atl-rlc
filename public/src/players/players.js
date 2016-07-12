@@ -35,7 +35,10 @@ export class Players {
     }
 
     this.playersService.createPlayer(newPlayer)
-      .then(data => this.players = data)
+      .then(data => {
+        this.players = data;
+        this.selectedTeam = null;
+      })
       .catch(error => console.log('Error fetching players!'));
 
     this.closeDialog();

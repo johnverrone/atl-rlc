@@ -17,9 +17,7 @@ export class Teams {
       .then(data => {
         this.teams = data;
       })
-      .catch(error => {
-        alert('Error fetching teams!');
-      });
+      .catch(error => console.log('Error fetching teams!'));
   }
 
   createTeam(name) {
@@ -31,9 +29,7 @@ export class Teams {
       .then(teams => {
         this.teams = teams;
       })
-      .catch(error => {
-        alert('Error creating team!');
-      })
+      .catch(error => console.log('Error creating team!'))
 
     this.newTeam = '';
   }
@@ -43,9 +39,7 @@ export class Teams {
       .then(teams => {
         this.teams = teams;
       })
-      .catch(error => {
-        alert('Error deleting team!');
-      })
+      .catch(error => console.log('Error deleting team!'))
 
   }
 }

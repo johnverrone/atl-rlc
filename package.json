@@ -4,7 +4,8 @@
   "author": "John Verrone",
   "private": true,
   "scripts": {
-    "start": "supervisor ./bin/www"
+    "start": "supervisor ./bin/www",
+    "test": "mocha \"app/**/*.spec.js\""
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,7 +17,10 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "jspm": "^0.16.39"
+    "jspm": "^0.16.39",
+    "mocha": "^2.5.3",
+    "should": "^9.0.2",
+    "supertest": "^1.2.0"
   },
   "jspm": {
     "directories": {

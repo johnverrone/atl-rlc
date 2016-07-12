@@ -14,6 +14,14 @@ html, body {
   padding: 10px;
 }
 
+.rl-drawer-header {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/images/ios-desktop.png');
+}
+
 .child-width {
   display: inline-block;
   width: inherit;

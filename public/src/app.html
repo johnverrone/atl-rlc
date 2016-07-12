@@ -4,21 +4,18 @@
       <div class="mdl-layout__header-row">
         <span class="mdl-layout-title">ATL Rocket League</span>
         <div class="mdl-layout-spacer"></div>
-        <div mdl="textfield" class="mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-          <label mdl="button" class="mdl-button--icon" for="fixed-header-drawer-exp">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
-          </div>
-        </div>
+        <a mdl="button" class="mdl-button--icon">
+          <i class="material-icons">add</i>
+        </a>
       </div>
     </header>
     <div class="mdl-layout__drawer mdl-color--grey-800 mdl-color-text--grey-300">
-      <span class="mdl-layout-title">ATL-RLC</span>
+      <header class="rl-drawer-header mdl-color--grey-900">
+
+      </header>
       <nav class="mdl-navigation">
-        <a repeat.for="row of router.navigation" class="mdl-navigation__link" href.bind="row.href">
-          <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>
+        <a repeat.for="row of router.navigation" class="mdl-navigation__link mdl-color-text--grey-300" href.bind="row.href">
+          <!-- <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i> -->
           ${row.title}
         </a>
       </nav>

@@ -15,3 +15,17 @@ describe('GET /api/v1/teams', function() {
       })
   });
 });
+
+describe('POST /api/v1/teams', function() {
+  it('should return 200', function(done) {
+    server
+      .post('/api/v1/teams')
+      .send({name: 'Test Team'})
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .end(function(err, res) {
+        res.status.should.equal(200);
+        done();
+      })
+  });
+});

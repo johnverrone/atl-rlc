@@ -9,4 +9,4 @@ services:
 before_script:
   - psql -c 'create database rocketleague;' -U postgres
   - npm install -g http-server
-  - http-server . -c-1 -p 3000
+  - http-server . -c-1 -p 3000 &

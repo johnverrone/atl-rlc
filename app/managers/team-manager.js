@@ -18,7 +18,7 @@ exports.createTeam = function(req, res) {
     }
 
     // SQL Query > Insert Data
-    client.query("INSERT INTO teams(name) values($1)", [data.name]);
+    client.query("INSERT INTO teams(name, wins, losses, goals_for, goals_against) values($1, 0, 0, 0, 0)", [data.name]);
 
     // SQL Query > Select Data
     var query = client.query("SELECT * FROM teams ORDER BY id ASC");

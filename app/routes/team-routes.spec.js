@@ -10,6 +10,7 @@ describe('GET /api/v1/teams', function() {
       .expect('Content-Type', /json/)
       .expect(200)
       .end(function(err, res) {
+        if (err) console.log(err);
         res.status.should.equal(200);
         done();
       })

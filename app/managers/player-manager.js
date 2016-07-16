@@ -18,10 +18,22 @@ exports.createPlayer = function(req, res) {
     }
 
     // SQL Query > Insert Data
-    client.query("INSERT INTO players(username, team_id, goals, assists, saves, shots, points) values($1, $2, 0, 0, 0, 0, 0)", [data.username, data.team_id]);
+    client.query(
+      `WITH inserted_player AS (
+        INSERT INTO players(username, first_name, last_name, email_address) 
+        VALUES($1, $2, $3, $4)
+        RETURNING player_id
+      ) INSERT INTO team_players (team_id, player_id)
+      SELECT $5, player_id FROM inserted_player`
+      , [data.username, data.first_name, data.last_name, data.email_address, data.team_id]);
 
     // SQL Query > Select Data
-    var query = client.query("SELECT players.*, teams.name as team FROM players JOIN teams on players.team_id = teams.id ORDER BY id ASC");
+    var query = client.query(
+          `SELECT players.*, teams.team_name 
+          FROM players
+          LEFT OUTER JOIN team_players tp ON tp.player_id = players.player_id
+          LEFT OUTER JOIN teams on teams.team_id = tp.team_id          
+          ORDER BY player_id ASC`);
 
     // Stream results back one row at a time
     query.on('row', function(row) {
@@ -52,7 +64,12 @@ exports.getPlayers = function(req, res) {
         }
 
         // SQL Query > Select Data
-        var query = client.query("SELECT players.*, teams.name as team FROM players JOIN teams on players.team_id = teams.id ORDER BY id ASC");
+        var query = client.query(
+          `SELECT players.*, teams.team_name 
+          FROM players
+          LEFT OUTER JOIN team_players tp ON tp.player_id = players.player_id
+          LEFT OUTER JOIN teams on teams.team_id = tp.team_id          
+          ORDER BY player_id ASC`);
 
         // Stream results back one row at a time
         query.on('row', function(row) {

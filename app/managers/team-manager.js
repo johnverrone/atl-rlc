@@ -21,7 +21,7 @@ exports.createTeam = function(req, res) {
     client.query("INSERT INTO teams(name, wins, losses, goals_for, goals_against) values($1, 0, 0, 0, 0)", [data.name]);
 
     // SQL Query > Select Data
-    var query = client.query("SELECT * FROM teams ORDER BY id ASC");
+    var query = client.query("SELECT * FROM teams ORDER BY team_id ASC");
 
     // Stream results back one row at a time
     query.on('row', function(row) {
@@ -52,7 +52,7 @@ exports.getTeams = function(req, res) {
         }
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM teams ORDER BY id ASC;");
+        var query = client.query("SELECT * FROM teams ORDER BY team_id ASC;");
 
         // Stream results back one row at a time
         query.on('row', function(row) {
@@ -89,10 +89,10 @@ exports.updateTeam = function(req, res) {
         }
 
         // SQL Query > Update Data
-        client.query("UPDATE teams SET name=($1) WHERE id=($2)", [data.name, id]);
+        client.query("UPDATE teams SET name=($1) WHERE team_id=($2)", [data.name, id]);
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM teams ORDER BY id ASC");
+        var query = client.query("SELECT * FROM teams ORDER BY team_id ASC");
 
         // Stream results back one row at a time
         query.on('row', function(row) {
@@ -126,10 +126,10 @@ exports.deleteTeam = function(req, res) {
         }
 
         // SQL Query > Delete Data
-        client.query("DELETE FROM teams WHERE id=($1)", [id]);
+        client.query("DELETE FROM teams WHERE team_id=($1)", [id]);
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM teams ORDER BY id ASC");
+        var query = client.query("SELECT * FROM teams ORDER BY team_id ASC");
 
         // Stream results back one row at a time
         query.on('row', function(row) {

@@ -7,21 +7,15 @@
           <tr>
             <th class="mdl-data-table__cell--non-numeric">Player</th>
             <th class="mdl-data-table__cell--non-numeric">Team</th>
-            <th>Goals</th>
-            <th>Assists</th>
-            <th>Saves</th>
-            <th>Shots</th>
-            <th>Points</th>
+            <th class="mdl-data-table__cell--non-numeric">Name </th>
+            <th>Total Points</th>
           </tr>
         </thead>
         <tbody>
           <tr repeat.for="player of players">
             <td class="mdl-data-table__cell--non-numeric">${player.username}</td>
-            <td class="mdl-data-table__cell--non-numeric">${player.team}</td>
-            <td>${player.goals}</td>
-            <td>${player.assists}</td>
-            <td>${player.saves}</td>
-            <td>${player.shots}</td>
+            <td class="mdl-data-table__cell--non-numeric">${player.team_name}</td>
+            <td class="mdl-data-table__cell--non-numeric">${player.first_name + ' ' + player.last_name}</td>
             <td>${player.points}</td>
           </tr>
         </tbody>
@@ -36,12 +30,25 @@
           <h4 class="mdl-dialog__title">Create Player</h4>
           <div class="mdl-dialog__content">
             <div mdl="textfield" class="mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="username" value.bind="username" required>
+              <input class="mdl-textfield__input" type="text" id="username" value.bind="username">
               <label class="mdl-textfield__label" for="username">Username</label>
             </div>
-            <label mdl="radio" repeat.for="team of teams" class="mdl-js-ripple-effect" for="${team.id}">
-              <input type="radio" id="${team.id}" class="mdl-radio__button" name="teams" value.bind="team.id" checked.bind="$parent.selectedTeam">
-              <span class="mdl-radio__label">${team.name}</span>
+            <div mdl="textfield" class="mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="first_name" value.bind="first_name">
+              <label class="mdl-textfield__label" for="first_name">First Name</label>
+            </div>
+            <div mdl="textfield" class="mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="last_name" value.bind="last_name">
+              <label class="mdl-textfield__label" for="last_name">Last Name</label>
+            </div>
+            <div mdl="textfield" class="mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="email_address" value.bind="email_address">
+              <label class="mdl-textfield__label" for="email_address">Email Address</label>
+            </div>
+            <label mdl="radio" repeat.for="team of teams" class="mdl-js-ripple-effect" for="${team.team_id}">
+              <input type="radio" id="${team.team_id}" class="mdl-radio__button" name="teams" value.bind="team.team_id" checked.bind="$parent.selectedTeam">
+              <span class="mdl-radio__label">${team.team_name}</span>
+              <br>
             </label>
           </div>
           <div class="mdl-dialog__actions">

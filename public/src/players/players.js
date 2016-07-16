@@ -31,7 +31,10 @@ export class Players {
   createPlayer() {
     var newPlayer = {
       username: this.username,
-      team_id: this.selectedTeam
+      team_id: this.selectedTeam,
+      first_name: this.first_name,
+      last_name: this.last_name,
+      email_address: this.email_address
     }
 
     this.playersService.createPlayer(newPlayer)

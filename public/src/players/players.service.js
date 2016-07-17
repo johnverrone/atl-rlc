@@ -9,7 +9,7 @@ export class PlayersService {
   }
 
   getPlayers() {
-    return this.http.fetch('players').then(response => response.json())
+    return this.http.fetch('players').then(response => response.json());
   }
 
   createPlayer(newPlayer) {

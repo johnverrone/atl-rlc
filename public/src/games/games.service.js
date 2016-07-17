@@ -9,6 +9,6 @@ export class GamesService {
   }
 
   getGames() {
-    return this.http.fetch('games').then(response => response.json())
+    return this.http.fetch('games').then(response => response.json());
   }
 }

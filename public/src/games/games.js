@@ -1,11 +1,11 @@
 import {inject} from 'aurelia-framework';
 import {GamesService} from './games.service';
+import _ from 'lodash';
 
 @inject(GamesService)
 export class Games {
     
   constructor(GamesService) {
-    this.weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
     this.gamesService = GamesService;
   }
 
@@ -15,7 +15,9 @@ export class Games {
 
   getGames() {
     this.gamesService.getGames()
-      .then(data => this.games = data)
+      .then(data => {
+        this.gamesByWeek =_.values(_.groupBy(data, 'week_nbr'));
+      })
       .catch(error => console.log('Error fetching games!'));
   }
 }

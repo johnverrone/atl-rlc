@@ -1,0 +1,25 @@
+<template>
+  <div repeat.for="week of weeks" class="child-width mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__supporting-text mdl-cell--12-col mdl-color--white">
+      <h4>Week ${week}</h4>
+      <table mdl="data-table" class="mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">Blue Team</th>
+            <th class="mdl-data-table__cell--non-numeric">Orange Team</th>
+            <th>Blue Score</th>
+            <th>Orange Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="game of games">
+            <td class="mdl-data-table__cell--non-numeric">${game.blue_team_name}</td>
+            <td class="mdl-data-table__cell--non-numeric">${game.orange_team_name}</td>
+            <td>${game.blue_team_score}</td>
+            <td>${game.orange_team_score}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

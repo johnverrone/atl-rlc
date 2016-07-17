@@ -18,7 +18,7 @@ exports.createTeam = function(req, res) {
     }
 
     // SQL Query > Insert Data
-    client.query("INSERT INTO teams(name, wins, losses, goals_for, goals_against) values($1, 0, 0, 0, 0)", [data.name]);
+    client.query("INSERT INTO teams(team_name, wins, losses, goals_for, goals_against) values($1, 0, 0, 0, 0)", [data.name]);
 
     // SQL Query > Select Data
     var query = client.query("SELECT * FROM teams ORDER BY team_id ASC");
@@ -89,7 +89,7 @@ exports.updateTeam = function(req, res) {
         }
 
         // SQL Query > Update Data
-        client.query("UPDATE teams SET name=($1) WHERE team_id=($2)", [data.name, id]);
+        client.query("UPDATE teams SET team_name=($1) WHERE team_id=($2)", [data.name, id]);
 
         // SQL Query > Select Data
         var query = client.query("SELECT * FROM teams ORDER BY team_id ASC");

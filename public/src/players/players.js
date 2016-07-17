@@ -1,13 +1,12 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient, json} from 'aurelia-fetch-client';
+import {json} from 'aurelia-fetch-client';
 import {TeamsService} from '../teams/teams.service';
 import {PlayersService} from './players.service';
 
-@inject(HttpClient, TeamsService, PlayersService)
+@inject(TeamsService, PlayersService)
 export class Players {
 
-  constructor(HttpClient, TeamsService, PlayersService) {
-    this.http = HttpClient;
+  constructor(TeamsService, PlayersService) {
     this.teamsService = TeamsService;
     this.playersService = PlayersService;
   }

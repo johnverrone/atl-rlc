@@ -9,7 +9,8 @@ require('../styles/css/styles.css');
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
+    .developmentLogging()
+    .plugin('aurelia-materialize-bridge', bridge => bridge.useAll() );
 
   configureContainer(aurelia.container);
 

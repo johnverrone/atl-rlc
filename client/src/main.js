@@ -1,11 +1,15 @@
-import 'fetch';
+import 'aurelia-bootstrapper-webpack';
+import 'aurelia-loader-webpack';
+import 'isomorphic-fetch';
 import {HttpClient} from 'aurelia-fetch-client';
+
+require('../node_modules/font-awesome/css/font-awesome.css');
+require('../styles/css/styles.css');
 
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging()
-    .plugin('redpelicans/aurelia-material');
+    .developmentLogging();
 
   configureContainer(aurelia.container);
 
@@ -16,7 +20,7 @@ function configureContainer(container) {
   let http = new HttpClient();
   http.configure(config => {
     config
-      .withBaseUrl('api/v1/')
+      .withBaseUrl('http://localhost:3000/api/v1/')
   });
   container.registerInstance(HttpClient, http);
 }

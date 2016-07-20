@@ -2,10 +2,10 @@
   <div class="child-width mdl-card mdl-shadow--2dp">
     <div class="mdl-card__supporting-text mdl-cell--12-col mdl-color--white">
       <h4>Teams</h4>
-      <table mdl="data-table" class="mdl-shadow--2dp">
+      <table>
         <thead>
           <tr>
-            <th class="mdl-data-table__cell--non-numeric">Team Name</th>
+            <th>Team Name</th>
             <th>Wins</th>
             <th>Losses</th>
             <th>Goals For</th>
@@ -16,14 +16,14 @@
         </thead>
         <tbody>
           <tr repeat.for="team of teams">
-            <td class="mdl-data-table__cell--non-numeric">${team.team_name}</td>
+            <td >${team.team_name}</td>
             <td>${team.wins}</td>
             <td>${team.losses}</td>
             <td>${team.goals_for}</td>
             <td>${team.goals_against}</td>
             <td>${team.goals_for - team.goals_against}</td>
             <td>
-              <a mdl="button" class="mdl-button--icon" click.delegate="deleteTeam(team.id)">
+              <a click.delegate="deleteTeam(team.id)">
                 <i class="material-icons">close</i>
               </a>
             </td>
@@ -31,11 +31,11 @@
         </tbody>
       </table>
       <form>
-        <div mdl="textfield" class="mdl-textfield--floating-label">
+        <div>
           <input class="mdl-textfield__input" type="text" id="newTeam" value.bind="newTeam">
           <label class="mdl-textfield__label" for="newTeam">New team name</label>
         </div>
-        <a mdl="button" class="mdl-button--colored mdl-js-ripple-effect" click.delegate="createTeam(newTeam)">
+        <a click.delegate="createTeam(newTeam)">
           Add Team
         </a>
       </form>

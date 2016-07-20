@@ -29,7 +29,7 @@ TODO: Write usage instructions
 
 ## Credits
 
-John Verrone | <john.verrone@gmail.com> | [github](http;//github.com/jverrone3)
+John Verrone | <john.verrone@gmail.com> | [github](http://github.com/jverrone3)
 
 ## License
 MIT
